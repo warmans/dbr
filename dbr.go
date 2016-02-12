@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gocraft/dbr/dialect"
+	"github.com/warmans/dbr/dialect"
 )
 
 // Open instantiates a Connection for a given database/sql connection
@@ -22,10 +22,10 @@ func Open(driver, dsn string, log EventReceiver) (*Connection, error) {
 	switch driver {
 	case "mysql":
 		d = dialect.MySQL
-	case "sqlite3":
-		d = dialect.MySQL
 	case "postgres":
 		d = dialect.PostgreSQL
+	case "sqlite3":
+		d = dialect.SQLite3
 	default:
 		return nil, ErrNotSupported
 	}
