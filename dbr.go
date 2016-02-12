@@ -22,6 +22,8 @@ func Open(driver, dsn string, log EventReceiver) (*Connection, error) {
 	switch driver {
 	case "mysql":
 		d = dialect.MySQL
+	case "sqlite3":
+		d = dialect.MySQL
 	case "postgres":
 		d = dialect.PostgreSQL
 	default:
